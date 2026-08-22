@@ -1,0 +1,3 @@
+"use client";
+import { useState } from "react";
+export function CancelOrderButton({ orderId }: { orderId: string }) { const [message, setMessage] = useState(""); async function cancel() { if (!window.confirm("Cancel this pending order?")) return; const response = await fetch(`/api/orders/${orderId}/cancel`, { method: "POST" }); const data = await response.json(); if (!response.ok) return setMessage(data.error ?? "Unable to cancel order."); window.location.reload(); } return <div><button onClick={cancel} className="rounded-lg border border-red-200 px-3 py-2 text-sm text-red-600">Cancel order</button>{message && <p className="mt-2 text-sm text-red-600">{message}</p>}</div>; }
