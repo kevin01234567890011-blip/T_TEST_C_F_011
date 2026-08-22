@@ -51,21 +51,25 @@ export type Database = {
         Row: Profile;
         Insert: Omit<Profile, "created_at" | "updated_at"> & Partial<Pick<Profile, "created_at" | "updated_at">>;
         Update: Partial<Omit<Profile, "id" | "created_at" | "updated_at">> & Partial<Pick<Profile, "updated_at">>;
+        Relationships: [];
       };
       products: {
         Row: Product;
         Insert: Omit<Product, "id" | "created_at" | "updated_at"> & Partial<Pick<Product, "id" | "created_at" | "updated_at">>;
         Update: Partial<Omit<Product, "id" | "created_at" | "updated_at">> & Partial<Pick<Product, "updated_at">>;
+        Relationships: [];
       };
       orders: {
         Row: Order;
         Insert: Omit<Order, "id" | "created_at" | "updated_at"> & Partial<Pick<Order, "id" | "created_at" | "updated_at">>;
         Update: Partial<Omit<Order, "id" | "user_id" | "created_at" | "updated_at">> & Partial<Pick<Order, "updated_at">>;
+        Relationships: [];
       };
       order_items: {
         Row: OrderItem;
         Insert: Omit<OrderItem, "id"> & Partial<Pick<OrderItem, "id">>;
         Update: Partial<Omit<OrderItem, "id" | "order_id">>;
+        Relationships: [];
       };
     };
     Views: Record<string, never>;
